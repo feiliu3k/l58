@@ -11,6 +11,11 @@ class AppServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register() {
+		if (app()->environment() == 'local' || app()->environment() == 'testing') {
+
+			$this->app->register(\Summerblue\Generator\GeneratorsServiceProvider::class);
+
+		}
 		//
 	}
 
